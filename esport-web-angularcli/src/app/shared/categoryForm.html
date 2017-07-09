@@ -1,0 +1,16 @@
+<section>
+    <div class="container">
+         <div class="breadcrumbs">
+            <h4><a [routerLink]="['/home']">Home</a></h4>
+        </div>
+        <div class="esport-form" >
+                <form>
+                    <input *ngIf="!updateAction" type="text" placeholder="Id de Categor&iacute;a" [(ngModel)]="categoryModel.CategoryId" name="CategoryId"/>
+                    <input *ngIf="updateAction" type="text" placeholder="Id de Categor&iacute;a" [(ngModel)]="categoryModel.CategoryId" name="CategoryId" disabled/>
+                    <input type="text" placeholder="Descripci&oacute;n de Categor&iacute;a" [(ngModel)]="categoryModel.Description" name="Description"/>
+                    <button *ngIf="!updateAction" (click)="onClickAddCategory()" [routerLink]="['/mainPanel']" class="esport-button">Agregar</button>
+                    <button *ngIf="updateAction" (click)="onClickUpdateCategory()" [routerLink]="['/mainPanel']" class="esport-button">Actualizar</button>
+                </form>
+        </div>
+    </div>
+</section>

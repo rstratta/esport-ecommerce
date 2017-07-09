@@ -1,0 +1,38 @@
+<section>
+    <div class="container" id="reviews">
+        <div *ngIf="isLoading">
+            <loading-view></loading-view>
+        </div>
+        <div *ngIf="!isLoading">
+            <div class="breadcrumbs">
+                <h4><a [routerLink]="['/home']">Home</a></h4>
+            </div>
+            <div>
+                <h2 class="title text-center">Reviews de {{productModel.product.ProductName}}</h2>
+                <h2 class="title text-center">Promedio: {{productModel.product.ReviewAverage}}</h2>
+                <div *ngIf="productModel.reviews.length>0">
+                    <div *ngFor='let review of productModel.reviews'>
+                        <h3>Usuario: {{review.UserId}}</h3>
+                        <textarea type="text" value="{{review.Description}}" disabled></textarea>
+                        <span>
+                    <i *ngIf="review.Points<1" class="fa fa-star-o"></i>                            
+					<i *ngIf="review.Points>=1" class="fa fa-star"></i>
+                    <i *ngIf="review.Points<2" class="fa fa-star-o"></i>
+                    <i *ngIf="review.Points>=2" class="fa fa-star"></i>
+                    <i *ngIf="review.Points<3" class="fa fa-star-o"></i>
+                    <i *ngIf="review.Points>=3" class="fa fa-star"></i>
+                    <i *ngIf="review.Points<4" class="fa fa-star-o"></i>
+                    <i *ngIf="review.Points>=4" class="fa fa-star"></i>
+                    <i *ngIf="review.Points<5" class="fa fa-star-o"></i>
+                    <i *ngIf="review.Points>=5" class="fa fa-star"></i>
+                </span>
+                    </div>
+                </div>
+                <div *ngIf="productModel.reviews.length==0">
+                    <h2 class="title text-center"> No se encontraron reviews para este producto</h2>
+                </div>
+                <p><button [routerLink]="['/mainPanel']" class="esport-button">Atras</button></p>
+            </div>
+        </div>
+    </div>
+</section>

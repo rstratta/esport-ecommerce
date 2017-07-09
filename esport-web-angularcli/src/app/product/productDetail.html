@@ -1,0 +1,63 @@
+<div class="container">
+    <div *ngIf="isLoading">
+        <loading-view></loading-view>
+    </div>
+    <div *ngIf="!isLoading">
+        <div class="breadcrumbs">
+            <h4><a [routerLink]="['/home']">Home</a></h4>
+        </div>
+        <h2 class="title text-center">Detalle del producto</h2>
+        <div>
+            <div>
+
+                <div class="col-sm-4">
+                    <div>
+                        <img *ngIf="productModel.Images.length>0" [src]="'data:image/jpg;base64,'+currentImage.Content" height="368" width="349"/>
+                        <img *ngIf="productModel.Images.length==0" src="./images/noImage.jpg" height="368" width="349"/>
+                    </div>
+                    <div>
+                        <div>
+                            <div *ngFor='let image of productModel.Images'>
+                                <a (click)="updateCurrentImage(image)"><img [src]="'data:image/jpg;base64,'+image.Content" height="64" width="48" /></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-sm-6">
+                    <div class="product-information">
+                        <h2>{{productModel.ProductName}}</h2>
+                        <p>Prod ID: {{productModel.ProductId}}</p>
+                        <p>Descripci&oacute;n {{productModel.Description}}</p>
+                        <span>
+                                    <i *ngIf="productModel.ReviewAverage<1" class="fa fa-star-o"></i>
+                                    <i *ngIf="productModel.ReviewAverage>=1" class="fa fa-star"></i>
+                                    <i *ngIf="productModel.ReviewAverage<2" class="fa fa-star-o"></i>
+                                    <i *ngIf="productModel.ReviewAverage>=2" class="fa fa-star"></i>
+                                    <i *ngIf="productModel.ReviewAverage<3" class="fa fa-star-o"></i>
+                                    <i *ngIf="productModel.ReviewAverage>=3" class="fa fa-star"></i>
+                                    <i *ngIf="productModel.ReviewAverage<4" class="fa fa-star-o"></i>
+                                    <i *ngIf="productModel.ReviewAverage>=4" class="fa fa-star"></i>
+                                    <i *ngIf="productModel.ReviewAverage<5" class="fa fa-star-o"></i>
+                                    <i *ngIf="productModel.ReviewAverage>=5" class="fa fa-star"></i>
+                                </span>
+                        <span >
+									<span>$ {{productModel.Price}}</span>
+                        <label *ngIf="userContext.userIsClient()">Cantidad:</label>
+                        <input *ngIf="userContext.userIsClient()" type="text" value="{{inputQuantity}}" [(ngModel)]="inputQuantity" name="inputQuantity"/>
+                        <button *ngIf="userContext.userIsClient()" type="button" class="btn btn-fefault cart" (click)="addProductToCart()">
+										<i class="fa fa-shopping-cart" ></i>
+										Agregar al carrito
+									</button>
+                        </span>
+                        <p><b>Stock:</b> {{productModel.AvailableStock}}</p>
+                        <p><b>Fabricante:</b> {{productModel.Factory}}</p>
+                        <div *ngFor='let field of productModel.Fields'>
+                            <p *ngIf="field.FieldValue!=null"><b>{{field.FieldName}} :</b> {{field.FieldValue}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

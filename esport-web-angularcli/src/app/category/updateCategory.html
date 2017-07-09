@@ -1,0 +1,16 @@
+<div id="cart_items">
+    <div class="container">
+        <div *ngIf="isLoading">
+            <loading-view></loading-view>
+        </div>
+        <div *ngIf="!isLoading">
+            <div class="breadcrumbs">
+                <h4><a [routerLink]="['/home']">Home</a></h4>
+            </div>
+            <div class="esport-form">
+                <h2 class="title text-center">Edici&oacute;n de categor&iacute;as</h2>
+                <category-form [updateAction]='true' [categoryModel]='categoryModel' (updateCategory)='updateCategory($event)'></category-form>
+            </div>
+        </div>
+    </div>
+</div>

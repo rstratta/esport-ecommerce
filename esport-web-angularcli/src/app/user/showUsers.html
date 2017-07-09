@@ -1,0 +1,71 @@
+<div id="cart_items">
+    <div class="container">
+        <div class="row">
+            <div *ngIf="isLoading">
+                <loading-view></loading-view>
+            </div>
+            <div *ngIf="!isLoading">
+                <div class="breadcrumbs">
+                    <h4><a [routerLink]="['/home']">Home</a></h4>
+                </div>
+                <h2 class="title text-center">Listado de usuarios</h2>
+                <div class="esport-form">
+                    <div class="esport-form">
+                        <div class="table-responsive cart_info">
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr class="cart_menu">
+                                        <td class="description">Id de Usuario</td>
+                                        <td class="description">Nombre</td>
+                                        <td class="description">Apellido</td>
+                                        <td class="description">Direcci&oacute;n</td>
+                                        <td class="description">Tel&eacute;fono</td>
+                                        <td class="description">Correo</td>
+                                        <td class="description">Agregar Rol</td>
+                                        <td class="description">Quitar rol</td>
+                                        <td class="description">Editar</td>
+                                        <td class="description">Eliminar/Restaurar</td>
+                                    </tr>
+                                </thead>
+                                <tbody *ngFor='let user of users'>
+                                    <tr>
+                                        <td class="tableItem_description">
+                                            <h4>{{user.UserId}}</h4>
+                                        </td>
+                                        <td class="tableItem_description">
+                                            <h4>{{user.UserName}}</h4>
+                                        </td>
+                                        <td class="tableItem_description">
+                                            <h4>{{user.UserLastName}}</h4>
+                                        </td>
+                                        <td class="tableItem_description">
+                                            <h4>{{user.Address}}</h4>
+                                        </td>
+                                        <td class="tableItem_description">
+                                            <h4>{{user.Phone}}</h4>
+                                        </td>
+                                        <td class="tableItem_description">
+                                            <h4>{{user.EMail}}</h4>
+                                        </td>
+                                        <td class="esport-table-action">
+                                            <a (click)="updateUserModel(user,'/asignRoleToUser')"><i class="fa fa-plus"></i></a>
+                                        </td>
+                                        <td class="esport-table-action">
+                                            <a (click)="updateUserModel(user,'/removeRoleFromUser')"><i class="fa fa-minus"></i></a>
+                                        </td>
+                                        <td class="esport-table-action">
+                                            <a (click)="updateUserModel(user,'/updateUser')"><i class="fa fa-pencil-square-o"></i></a>
+                                        </td>
+                                        <td class="esport-table-action">
+                                            <a *ngIf="user.Eliminated" (click)="restoreUser(user)"><i class="fa fa-refresh"></i></a>
+                                            <a *ngIf="!user.Eliminated" (click)="removeUser(user)"><i class="fa fa-trash-o"></i></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

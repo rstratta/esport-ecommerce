@@ -1,0 +1,61 @@
+*.htm
+ESport App/esport.web.api/ESport.Data.DataAccessTest/bin
+ESport App/esport.web.api/ESport.Data.DataAccessTest/obj
+ESport App/esport.web.api/ESport.Repository.Test/bin
+ESport App/esport.web.api/ESport.Repository.Test/obj
+ESport App/esport.web.api/ESport.Data.DataAccess/bin
+ESport App/esport.web.api/ESport.Data.DataAccess/obj
+ESport App/esport.web.api/ESport.Data.Entities/bin
+ESport App/esport.web.api/ESport.Data.Entities/obj
+ESport App/esport.web.api/ESport.Data.Entities.Test/bin
+ESport App/esport.web.api/ESport.Data.Entities.Test/obj
+ESport App/esport.web.api/ESport.Data.Repository/obj
+ESport App/esport.web.api/ESport.Data.Repository/bin
+ESport App/esport.web.api/ESport.Data.Repository.Tests/obj
+ESport App/esport.web.api/ESport.Data.Repository.Tests/bin
+ESport App/esport.web.api/ESport.Web.Api/obj
+ESport App/esport.web.api/ESport.Web.Api/bin
+ESport App/esport.web.api/ESport.Web.Api.Test/obj
+ESport App/esport.web.api/ESport.Web.Api.Test/bin
+ESport App/esport.web.api/ESport.Data.Service/obj
+ESport App/esport.web.api/ESport.Data.Service/bin
+ESport App/esport.web.api/ESport.Data.Service.Test/obj
+ESport App/esport.web.api/ESport.Data.Service.Test/bin
+ESport App/esport.web.api/ESport.Data.Commons/obj
+ESport App/esport.web.api/ESport.Data.Commons/bin
+ESport App/esport.web.api/ESport.Data.Commons.Test/obj
+ESport App/esport.web.api/ESport.Data.Commons.Test/bin
+ESport App/esport.web.api/ESport.Data.Commons.Test/bin
+ESport App/esport.web.api/ESport.Web.Services/obj
+ESport App/esport.web.api/ESport.Web.Services/bin
+ESport App/esport.web.api/TestResults
+ESport App/esport.web.api/ESport.Data.Repository.Test/obj/
+ESport App/esport.web.api/ESport.Data.Repository.Test/bin/
+ESport App/esport.web.api/ESport.Data.DataAccess/Migrations
+ESport App/esport.web.api/ESport.DependencyResolver/obj
+ESport App/esport.web.api/ESport.DependencyResolver/bin
+ESport App/esport.web.api/ESport.Web.Angular/bin
+ESport App/esport.web.api/ESport.Web.Angular/obj
+ESport App/esport.web.api/ESport.DesktopAppUI/obj
+ESport App/esport.web.api/ESport.DesktopAppUI/bin
+ESport App/esport.web.api/ESport.ImportProducts/bin
+ESport App/esport.web.api/ESport.ImportProducts/obj
+ESport App/esport.web.api/ImportTxt/bin
+ESport App/esport.web.api/ImportTxt/obj
+ESport App/esport.web.api/ImportXml/bin
+ESport App/esport.web.api/ImportXml/obj
+ESport App/esport.web.api/ESport.Product.Importer/obj
+ESport App/esport.web.api/ESport.Product.Importer/bin
+ESport App/esport.web.api/ESport.Logger.Data/bin
+ESport App/esport.web.api/ESport.Logger.Data/obj
+ESport App/esport.web.api/ESport.Logger.Manager/bin
+ESport App/esport.web.api/ESport.Logger.Manager/obj
+ESport App/esport.web.api/ESport.Logger.Repository/bin
+ESport App/esport.web.api/ESport.Logger.Repository/obj
+ESport App/esport.web.api/ESport.Logger.DataAccess/bin
+ESport App/esport.web.api/ESport.Logger.DataAccess/obj
+packages/
+# Visual Studio 2015 cache/options directory
+.vs/
+*.png
+*.js

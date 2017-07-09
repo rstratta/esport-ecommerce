@@ -1,0 +1,13 @@
+<section>
+    <div class="container">
+        <div class="esport-form" >
+                <form>
+                    <input *ngIf="!updateAction" type="text" placeholder="Id de rol" [(ngModel)]="roleModel.RoleId" name="RoleId"/>
+                    <input *ngIf="updateAction" type="text" placeholder="Id de rol" [(ngModel)]="roleModel.RoleId" name="RoleId" disabled/>
+                    <input type="text" placeholder="Descripci&oacute;n del rol" [(ngModel)]="roleModel.Description" name="Description"/>
+                    <button *ngIf="!updateAction" (click)="onClickAddRole()" [routerLink]="['/mainPanel']" class="esport-button">Agregar</button>
+                    <button *ngIf="updateAction" (click)="onClickUpdateRole()" [routerLink]="['/mainPanel']" class="esport-button">Actualizar</button>
+                </form>
+        </div>
+    </div>
+</section>

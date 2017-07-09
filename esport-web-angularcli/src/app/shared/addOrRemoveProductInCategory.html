@@ -1,0 +1,46 @@
+<div id="cart_items">
+    <div class="container">
+        <h2 *ngIf="addProductView" class="title text-center">Agregar producto a categor&iacute;a</h2>
+        <h2 *ngIf="removeProductView" class="title text-center">Remover producto de categor&iacute;a</h2>
+       
+        <div *ngIf="!loading && (addProductView || removeProductView)" class="esport-form">
+            <div *ngIf="!loading" class="table-responsive cart_info">
+                <table class="table table-condensed">
+                    <thead>
+                        <tr class="cart_menu">
+                            <td class="description">Id de product</td>
+                            <td class="description">Nombre de producto</td>
+                            <td class="description">Descripci&oacute;n del producto</td>
+                            <td *ngIf="addProductView" class="description">Agregar producto</td>
+                            <td *ngIf="removeProductView" class="description">Quitar producto</td>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor='let product of productsToShow'>
+                        <tr>
+                            <td class="tableItem_description">
+                                <h4>{{product.ProductId}}</h4>
+                            </td>
+                            <td class="tableItem_description">
+                                <h4>{{product.ProductName}}</h4>
+                            </td>
+                            <td class="tableItem_description">
+                                <h4>{{product.Description}}</h4>
+                            </td>
+                            <td *ngIf="addProductView">
+                                <a (click)="onClickAddProductInCategory(product)" [routerLink]="['/showCategories']"><i class="fa fa-plus"></i></a>
+                            </td>
+                            <td *ngIf="removeProductView">
+                                <a (click)="onClickRemoveInCategory(product)" [routerLink]="['/showCategories']"><i class="fa fa-minus"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div *ngIf="loading">
+                <h1><i class="fa fa-spinner fa-pulse fa-3x fa-fw" aria-hidden="true"></i></h1>
+                <h4>{{loadinMessage}}</h4>
+            </div>
+        </div>
+        <button [routerLink]="['/showCategories']" class="esport-button">Volver al listado</button>
+    </div>
+</div>

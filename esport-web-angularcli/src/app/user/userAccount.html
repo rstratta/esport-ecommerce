@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="breadcrumbs">
+        <h4><a [routerLink]="['/home']">Home</a></h4>
+    </div>
+    <div *ngIf="isLoading">
+        <loading-view></loading-view>
+    </div>
+    <div *ngIf="!isLoading">
+        <div class="row">
+            <h2 class="title text-center">Administraci&oacute;n de cuenta</h2>
+            <div class="col-sm-4">
+                <div class="esport-form">
+                    <h2 class="title text-center">Datos de Usuario</h2>
+                    <user-form (updateUser)='updateUser($event)' [userModel]='currentUserModel' [updateAction]='true'></user-form>
+                </div>
+            </div>
+            <div class="col-sm-1">
+                <h2 class="or">O</h2>
+            </div>
+            <div class="col-sm-4 col-sm-offset-1">
+                <div class="esport-form">
+                    <h2 class="title text-center">Cambio de Password</h2>
+                    <form>
+                        <input type="password" placeholder="Password Actual" [(ngModel)]="model.Password" name="Password" />
+                        <input type="password" placeholder="Nuevo Password" [(ngModel)]="model.NewPassword" name="NewPassword" />
+                        <input type="password" placeholder="Reingrese Password" [(ngModel)]="model.repeatNewPassword" name="repeatNewPassword" />
+                        <span *ngIf="model.repeatNewPassword && model.NewPassword!=model.repeatNewPassword" class="label label-danger">Las nueva contraseña debe coincidir</span>
+                        <button (click)="changePassword()" class="esport-button">Actualizar Password</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

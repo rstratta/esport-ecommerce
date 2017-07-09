@@ -1,0 +1,13 @@
+<div id="cart_items">
+    <div class="container">
+        <div *ngIf="isLoading">
+            <loading-view></loading-view>
+        </div>
+        <div *ngIf="!isLoading">
+            <h2 class="title text-center">Administraci&oacute;n de categor&iacute;as.</h2>
+            <div class="esport-form">
+                <category-form (addCategory)='addCategory($event)' [updateAction]='false'></category-form>
+            </div>
+        </div>
+    </div>
+</div>

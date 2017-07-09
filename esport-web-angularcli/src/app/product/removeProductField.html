@@ -1,0 +1,19 @@
+<div id="cart_items">
+    <div class="container">
+        <div *ngIf="isLoading">
+            <loading-view></loading-view>
+        </div>
+        <div *ngIf="!isLoading">
+        <div class="breadcrumbs">
+            <h4><a [routerLink]="['/home']">Home</a></h4>
+        </div>
+        <h2 class="title text-center">Eliminar campo</h2>
+        
+        <div class="col-sm-6">
+            <div class="esport-form">
+                <product-field-table (removeProductField)='removeProductField($event)' [removeAction]='true' [productModel]='productModel'></product-field-table>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,5 @@
+{
+    "serverIp":"localhost",
+    "serverPort":"6102",
+    "protocol":"http"
+}

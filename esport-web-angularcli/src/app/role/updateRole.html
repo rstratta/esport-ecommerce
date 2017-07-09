@@ -1,0 +1,13 @@
+<div id="cart_items">
+    <div class="container">
+        <div *ngIf="isLoading">
+            <loading-view></loading-view>
+        </div>
+        <div *ngIf="!isLoading">
+            <div class="breadcrumbs">
+                <h4><a [routerLink]="['/home']">Home</a></h4>
+            </div>
+        <h2 class="title text-center">Edici&oacute;n de roles.</h2>
+        <role-form [updateAction]='true' [roleModel]='roleModel' (updateRole)='updateRole($event)'></role-form>
+    </div>
+</div>

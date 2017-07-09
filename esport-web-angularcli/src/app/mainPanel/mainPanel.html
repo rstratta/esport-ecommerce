@@ -1,0 +1,112 @@
+<section>
+    <div>
+        <section>
+            <div *ngIf="mainPanelModel.isLoading">
+                <loading-view></loading-view>
+            </div>
+            <div *ngIf="!mainPanelModel.isLoading" class="container">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="left-sidebar">
+                            <h2>Categor&iacute;as</h2>
+                            <div class="panel-group category-products" id="accordian">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title"><a (click)="getAllActiveProducts()">Todos los productos</a></h4>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default" *ngFor='let category of mainPanelModel.activeCategories'>
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title"><a (click)="getProductsByCategoryId(category.CategoryId)">{{ category.Description }}</a></h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <h2>Filtros</h2>
+                            <form>
+                                <div class="panel-group category-products" id="accordian">
+                                    <div align="center" class="panel panel-default">
+                                        <input type="text" placeholder="Descripci&oacute;n del producto" [(ngModel)]="filter.Description" name="Description" />
+                                    </div>
+                                    <div align="center" class="panel panel-default">
+                                        <input type="text" placeholder="Nombre del product" [(ngModel)]="filter.ProductName" name="ProductName" />
+                                    </div>
+                                    <div align="center" class="panel panel-default">
+                                        <input type="text" placeholder="Fabricante" [(ngModel)]="filter.Factory" name="Factory" />
+                                    </div>
+                                    <div align="center" class="panel panel-default">
+                                        <input type="text" placeholder="Precio" [(ngModel)]="filter.Price" name="Price" />
+                                    </div>
+                                    <p></p>
+                                    <h4 align="center"> Ordenar </h4>
+                                    <div align="center" class="panel panel-default">
+                                        <p>Ordenar por:</p>
+                                        <select id="filterTypes" name="filterTypes" placeholder="Ordenar por:" [(ngModel)]="filter.OrderByFilterName">
+                                           <option *ngFor="let filterType of filterTypes" [value]="filterType.Id">{{filterType.Description}}</option>
+                                        </select>
+                                    </div>
+                                    <div align="center" class="panel panel-default">
+                                        <p>Asc o Desc:</p>
+                                        <select id="filterTypeOp" name="filterTypeOp" placeholder="asc o desc" [(ngModel)]="filter.OrderByOperation">
+                                            <option *ngFor="let filterType of filterTypeOp" [value]="filterType.Id">{{filterType.Operation}}</option>
+                                        </select>
+                                    </div>
+                                    <div align="center" class="panel panel-default">
+                                        <button (click)="applyFilter()" [routerLink]="['/mainPanel']" class="esport-button">Filtrar</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-9 padding-right">
+                        <div class="features_items">
+                            <h2 class="title text-center">Productos</h2>
+                            <div *ngIf="mainPanelModel.activeProducts.length>0">
+                                <div class="col-sm-4" *ngFor='let product of mainPanelModel.activeProducts'>
+                                    <div class="product-image-wrapper">
+                                        <div class="single-products">
+                                            <div class="productinfo text-center">
+                                                <img *ngIf="product.Images.length>0" [src]="'data:image/jpg;base64,'+product.Images[0].Content" height="249" width="268"
+                                                />
+                                                <img *ngIf="product.Images.length==0" src="./images/noImage.jpg" height="249" width="268" />
+                                                <h2>$ {{product.Price}}</h2>
+                                                <p>{{product.Description}}</p>
+                                                <a *ngIf="userContext.userIsClient()" class="btn btn-default add-to-cart" (click)="addItemInCart(product.ProductId)"><i class="fa fa-shopping-cart" ></i>Agregar al carrito</a>
+                                            </div>
+                                            <div *ngIf="userContext.userIsClient() && product.AvailableStock>5" class="product-overlay">
+                                                <div class="overlay-content">
+                                                    <h2>$ {{product.Price}}</h2>
+                                                    <p>{{product.Description}}</p>
+                                                    <a class="btn btn-default add-to-cart" (click)="addItemInCart(product.ProductId)"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>
+                                                </div>
+                                            </div>
+                                            <div *ngIf="userContext.userIsClient() && product.AvailableStock<5" class="product-overlay-without-stock">
+                                                <div class="overlay-content">
+                                                    <h2>&Uacute;ltimas unidades!</h2>
+                                                    <h2>$ {{product.Price}}</h2>
+                                                    <p>{{product.Description}}</p>
+                                                    <a class="btn btn-default add-to-cart" (click)="addItemInCart(product.ProductId)"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>
+                                                </div>
+                                            </div>
+
+                                            <img *ngIf="userContext.userIsLoged() && !product.BlackProduct" src="images/points.png" class="new" />
+                                        </div>
+                                        <div class="choose">
+                                            <ul class="nav nav-pills nav-justified">
+                                                <li><a (click)="updateModel(product)" [routerLink]="['/showProductDetail']"><i class="fa fa+plus"></i>Detalle</a></li>
+                                                <li><a *ngIf="userContext.userIsClient()" (click)="showReviews(product)" [routerLink]="['/productReviewPanel']"><i class="fa fa-star"></i>Reviews</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div *ngIf="mainPanelModel.activeProducts.length==0">
+                                <h2 class="title text-center">No se encontraron productos</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</section>

@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="breadcrumbs">
+        <h4><a [routerLink]="['/home']">Home</a></h4>
+    </div>
+    <div align="center">
+        <h2 class="title text-center">Reporte de categor&iacute;as</h2>
+        <b>Fecha de inicio </b> <input  type="date" placeholder="Fecha de inicio" [(ngModel)]="initDate" name="initDate" />
+         <b> Fecha de fin </b> <input  type="date" placeholder="Fecha de fin" [(ngModel)]="finishDate" name="finishDate" />
+        <p></p><button (click)="buildReport()" class="esport-button">Emitir Reporte</button>
+    </div>
+    <div *ngIf="loading">
+        <loading-view></loading-view>
+    </div>
+    <p></p><div *ngIf="!loading" id="cart_items">
+        <div class="esport-form">
+            <div class="table-responsive cart_info">
+                <table class="table table-condensed">
+                    <thead>
+                        <tr class="cart_menu">
+                            <td class="description">Categor&iacute;a</td>
+                            <td class="description">Porcentaje</td>
+                            <td class="description">Monto</td>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor='let reportResult of categoryReportResult.ItemsResult'>
+                        <tr>
+                            <td class="tableItem_description">
+                                <h4>{{reportResult.Category}}</h4>
+                            </td>
+                            <td class="tableItem_description">
+                                <h4>{{reportResult.Avg}}</h4>
+                            </td>
+                            <td align="right" class="tableItem_description">
+                                <h4>{{reportResult.Amount}}</h4>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="3" align="right"><h4>Total: $ {{categoryReportResult.Total}}</h4></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

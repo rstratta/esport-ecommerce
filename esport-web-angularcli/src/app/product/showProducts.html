@@ -1,0 +1,65 @@
+<div *ngIf="!loading" id="cart_items">
+    <div class="container">
+        <div *ngIf="isLoading">
+            <loading-view></loading-view>
+        </div>
+        <div *ngIf="!isLoading">
+            <div class="breadcrumbs">
+                <h4><a [routerLink]="['/home']">Home</a></h4>
+            </div>
+            <h2 class="title text-center">Listado de productos</h2>
+
+            <div class="esport-form">
+                <div class="table-responsive cart_info">
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr class="cart_menu">
+                                <td class="description">Id de producto</td>
+                                <td class="description">Nombre de producto</td>
+                                <td class="description">Descripci&oacute;n de producto</td>
+                                <td class="description">Fabricante</td>
+                                <td class="description">Precio</td>
+                                <td class="description">Agregar/Editar Campo</td>
+                                <td class="description">Quitar Campo</td>
+                                <td class="description">Editar</td>
+                                <td class="description">Eliminar/Restaurar</td>
+                            </tr>
+                        </thead>
+                        <tbody *ngFor='let product of products'>
+                            <tr>
+                                <td class="tableItem_description">
+                                    <h4>{{product.ProductId}}</h4>
+                                </td>
+                                <td class="tableItem_description">
+                                    <h4>{{product.ProductName}}</h4>
+                                </td>
+                                <td class="tableItem_description">
+                                    <h4>{{product.Description}}</h4>
+                                </td>
+                                <td class="tableItem_description">
+                                    <h4>{{product.Factory}}</h4>
+                                </td>
+                                <td class="tableItem_description">
+                                    <h4>{{product.Price}}</h4>
+                                </td>
+                                <td class="esport-table-action">
+                                    <a (click)="updateModel(product, '/addFieldOnProduct' )"><i class="fa fa-plus"></i></a>
+                                </td>
+                                <td class="esport-table-action">
+                                    <a (click)="updateModel(product,'/removeFieldFromProduct')"><i class="fa fa-minus"></i></a>
+                                </td>
+                                <td class="esport-table-action">
+                                    <a (click)="updateModel(product,'/updateProduct')"><i class="fa fa-pencil-square-o"></i></a>
+                                </td>
+                                <td class="esport-table-action">
+                                    <a *ngIf="product.Eliminated" (click)="restoreProduct(product)"><i class="fa fa-refresh"></i></a>
+                                    <a *ngIf="!product.Eliminated" (click)="removeProduct(product)"><i class="fa fa-trash-o"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

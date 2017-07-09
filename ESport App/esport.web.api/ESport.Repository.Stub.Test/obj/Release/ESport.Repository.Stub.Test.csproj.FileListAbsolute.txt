@@ -1,0 +1,16 @@
+C:\Users\strat\Desktop\Rodrigo\Facultad\DiseñoAplicacionesII\SapelliStrattaGonzalez\ESport App\esport.web.api\ESport.Repository.Stub.Test\bin\Release\ESport.Repository.Stub.Test.dll
+C:\Users\strat\Desktop\Rodrigo\Facultad\DiseñoAplicacionesII\SapelliStrattaGonzalez\ESport App\esport.web.api\ESport.Repository.Stub.Test\bin\Release\ESport.Repository.Stub.Test.pdb
+C:\Users\strat\Desktop\Rodrigo\Facultad\DiseñoAplicacionesII\SapelliStrattaGonzalez\ESport App\esport.web.api\ESport.Repository.Stub.Test\bin\Release\ESport.Data.Entities.dll
+C:\Users\strat\Desktop\Rodrigo\Facultad\DiseñoAplicacionesII\SapelliStrattaGonzalez\ESport App\esport.web.api\ESport.Repository.Stub.Test\bin\Release\ESport.DependencyResolver.dll
+C:\Users\strat\Desktop\Rodrigo\Facultad\DiseñoAplicacionesII\SapelliStrattaGonzalez\ESport App\esport.web.api\ESport.Repository.Stub.Test\bin\Release\ESport.Data.Commons.dll
+C:\Users\strat\Desktop\Rodrigo\Facultad\DiseñoAplicacionesII\SapelliStrattaGonzalez\ESport App\esport.web.api\ESport.Repository.Stub.Test\bin\Release\Microsoft.Practices.Unity.dll
+C:\Users\strat\Desktop\Rodrigo\Facultad\DiseñoAplicacionesII\SapelliStrattaGonzalez\ESport App\esport.web.api\ESport.Repository.Stub.Test\bin\Release\Microsoft.Practices.ServiceLocation.dll
+C:\Users\strat\Desktop\Rodrigo\Facultad\DiseñoAplicacionesII\SapelliStrattaGonzalez\ESport App\esport.web.api\ESport.Repository.Stub.Test\bin\Release\ESport.Data.Entities.pdb
+C:\Users\strat\Desktop\Rodrigo\Facultad\DiseñoAplicacionesII\SapelliStrattaGonzalez\ESport App\esport.web.api\ESport.Repository.Stub.Test\bin\Release\ESport.DependencyResolver.pdb
+C:\Users\strat\Desktop\Rodrigo\Facultad\DiseñoAplicacionesII\SapelliStrattaGonzalez\ESport App\esport.web.api\ESport.Repository.Stub.Test\bin\Release\ESport.Data.Commons.pdb
+C:\Users\strat\Desktop\Rodrigo\Facultad\DiseñoAplicacionesII\SapelliStrattaGonzalez\ESport App\esport.web.api\ESport.Repository.Stub.Test\bin\Release\Microsoft.Practices.Unity.xml
+C:\Users\strat\Desktop\Rodrigo\Facultad\DiseñoAplicacionesII\SapelliStrattaGonzalez\ESport App\esport.web.api\ESport.Repository.Stub.Test\bin\Release\Microsoft.Practices.ServiceLocation.pdb
+C:\Users\strat\Desktop\Rodrigo\Facultad\DiseñoAplicacionesII\SapelliStrattaGonzalez\ESport App\esport.web.api\ESport.Repository.Stub.Test\bin\Release\Microsoft.Practices.ServiceLocation.xml
+C:\Users\strat\Desktop\Rodrigo\Facultad\DiseñoAplicacionesII\SapelliStrattaGonzalez\ESport App\esport.web.api\ESport.Repository.Stub.Test\obj\Release\ESport.Repository.Stub.Test.csprojResolveAssemblyReference.cache
+C:\Users\strat\Desktop\Rodrigo\Facultad\DiseñoAplicacionesII\SapelliStrattaGonzalez\ESport App\esport.web.api\ESport.Repository.Stub.Test\obj\Release\ESport.Repository.Stub.Test.dll
+C:\Users\strat\Desktop\Rodrigo\Facultad\DiseñoAplicacionesII\SapelliStrattaGonzalez\ESport App\esport.web.api\ESport.Repository.Stub.Test\obj\Release\ESport.Repository.Stub.Test.pdb

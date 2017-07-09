@@ -1,0 +1,38 @@
+<div id="cart_items">
+    <div class="container">
+        <h2 *ngIf="addRoleInUserAction" class="title text-center">Agregar rol a usuario</h2>
+        <h2 *ngIf="!addRoleInUserAction" class="title text-center">Remover rol de usuario</h2>
+       
+        <div class="esport-form">
+            <div class="table-responsive cart_info">
+                <table class="table table-condensed">
+                    <thead>
+                        <tr class="cart_menu">
+                            <td class="description">Id de Rol</td>
+                            <td class="description">Descripci&oacute;n</td>
+                            <td *ngIf="addRoleInUserAction" class="description">Agregar rol</td>
+                            <td *ngIf="!addRoleInUserAction" class="description">Quitar quitar</td>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor='let role of rolesToShow'>
+                        <tr>
+                            <td class="tableItem_description">
+                                <h4>{{role.RoleId}}</h4>
+                            </td>
+                            <td class="tableItem_description">
+                                <h4>{{role.Description}}</h4>
+                            </td>
+                            <td *ngIf="addRoleInUserAction">
+                                <a (click)="onClickAddRoleInUser(role)" ><i class="fa fa-plus"></i></a>
+                            </td>
+                            <td *ngIf="!addRoleInUserAction">
+                                <a (click)="onClickRemoveRoleFromUser(role)" ><i class="fa fa-minus"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <button [routerLink]="['/showUsers']" class="esport-button">Volver al listado</button>
+    </div>
+</div>

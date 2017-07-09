@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="breadcrumbs">
+        <h4><a [routerLink]="['/home']">Home</a></h4>
+    </div>
+    <div align="center">
+        <h2 class="title text-center">Reporte de productos m&aacute;s vendidos</h2>
+        <input class="col-sm-4" type="number" placeholder="Número de productos" [(ngModel)]="productQuantity" name="productQuantity" />
+        <button (click)="buildReport()" class="esport-button">Emitir Reporte</button>
+    </div>
+    <div *ngIf="loading">
+        <loading-view></loading-view>
+    </div>
+    <p></p><div *ngIf="!loading" id="cart_items">
+        <div class="esport-form">
+            <div class="table-responsive cart_info">
+                <table class="table table-condensed">
+                    <thead>
+                        <tr class="cart_menu">
+                            <td class="description">Id de producto</td>
+                            <td class="description">Descripci&oacute;n de producto</td>
+                            <td class="description">Cantidad</td>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor='let reportResult of productReportResult'>
+                        <tr>
+                            <td class="tableItem_description">
+                                <h4>{{reportResult.ProductId}}</h4>
+                            </td>
+                            <td class="tableItem_description">
+                                <h4>{{reportResult.Description}}</h4>
+                            </td>
+                            <td class="tableItem_description">
+                                <h4>{{reportResult.Quantity}}</h4>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

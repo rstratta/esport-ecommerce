@@ -1,0 +1,14 @@
+<div id="cart_items">
+    <div class="container">
+        <div class="row">
+            <div *ngIf="isLoading">
+                <loading-view></loading-view>
+            </div>
+            <div *ngIf="!isLoading">
+                <div class="breadcrumbs">
+                    <h4><a [routerLink]="['/home']">Home</a></h4>
+                </div>
+                <user-form (updateUser)='updateUser($event)' [userModel]='userModel' [updateAction]='true' [title]='localTitle'></user-form>
+            </div>
+        </div>
+    </div>

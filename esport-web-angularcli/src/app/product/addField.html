@@ -1,0 +1,38 @@
+<div id="cart_items">
+    <div class="container">
+        <div *ngIf="isLoading">
+            <loading-view></loading-view>
+        </div>
+        <div *ngIf="!isLoading">
+            <div class="breadcrumbs">
+                <h4><a [routerLink]="['/home']">Home</a></h4>
+            </div>
+            <div class="col-sm-4">
+                <h2 class="title text-center">Crear nuevo campo</h2>
+
+                <div class="esport-form ">
+                    <form>
+                        <input type="text" placeholder="Nombre del campo" [(ngModel)]="newFieldModel.FieldName" name="FieldName" />
+                        <select id="fieldTypes" name="fieldTypes" placeholder="Tipo" [(ngModel)]="newFieldModel.FieldType">
+                        <option *ngFor="let field of fieldTypes" [value]="field.Type">{{field.Description}}</option>
+                    </select>
+                        <input *ngIf="isATextField()" type="text" placeholder="Valor del campo" [(ngModel)]="newFieldModel.FieldValue" name="FieldValue"
+                        />
+                        <input *ngIf="isANumberField()" type="number" placeholder="Valor del campo" [(ngModel)]="newFieldModel.FieldValue" name="FieldValue"
+                        />
+                        <input *ngIf="isADateField()" type="date" placeholder="Valor del campo" [(ngModel)]="newFieldModel.FieldValue" name="FieldValue"
+                        />
+                        <button (click)="addNewFieldOnProduct()"  class="esport-button">Agregar</button>
+                    </form>
+                </div>
+            </div>
+            <div>
+                <h2 class="title text-center">Agregar o Editar campo</h2>
+                <div class="esport-form">
+                    <product-field-table (addProductField)='addFieldOnProduct($event)' (updateProductField)='updateFieldOnProduct($event)' [removeAction]='false'
+                        [productModel]='productModel'></product-field-table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

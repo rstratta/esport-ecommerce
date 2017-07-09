@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6DBC70D6-3A33-493D-8E1C-73089F116441}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ESport.Data.Commons</RootNamespace>
+    <AssemblyName>ESport.Data.Commons</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CartCommons\CartDTO.cs" />
+    <Compile Include="CartCommons\CartItemDTO.cs" />
+    <Compile Include="CartCommons\CartRequest.cs" />
+    <Compile Include="CategoryCommons\CategoryDTO.cs" />
+    <Compile Include="CategoryCommons\CategoryRequest.cs" />
+    <Compile Include="PointSystemConfiguration\PointSystemConfigurationDTO.cs" />
+    <Compile Include="ESportUtils.cs" />
+    <Compile Include="Login\UserContextDTO.cs" />
+    <Compile Include="Login\LoginUserRequest.cs" />
+    <Compile Include="OperationException.cs" />
+    <Compile Include="ProductCommons\Base64ImageDTO.cs" />
+    <Compile Include="ProductCommons\FieldDTO.cs" />
+    <Compile Include="ProductCommons\FullProductDTO.cs" />
+    <Compile Include="ProductCommons\ProductRequest.cs" />
+    <Compile Include="ProductCommons\SimpleProductDTO.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportCommons\AbstractReportDTO.cs" />
+    <Compile Include="ReportCommons\CategoryItemReportDTO.cs" />
+    <Compile Include="ReportCommons\CategoryReportDTO.cs" />
+    <Compile Include="ReportCommons\ProductItemReportDTO.cs" />
+    <Compile Include="ReportCommons\ProductReportDTO.cs" />
+    <Compile Include="ReviewCommons\PendingReviewDTO.cs" />
+    <Compile Include="ReviewCommons\ReviewDTO.cs" />
+    <Compile Include="ReviewCommons\ReviewRequest.cs" />
+    <Compile Include="RoleCommons\RoleDTO.cs" />
+    <Compile Include="RoleCommons\RoleRequest.cs" />
+    <Compile Include="UserCommons\UserDTO.cs" />
+    <Compile Include="UserCommons\UserRequest.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,15 @@
+<div id="cart_items">
+    <div class="container">
+        <div *ngIf="isLoading">
+            <loading-view></loading-view>
+        </div>
+        <div *ngIf="!isLoading">
+            <div class="breadcrumbs">
+                <h4><a [routerLink]="['/home']">Home</a></h4>
+            </div>
+            <div class="esport-form">
+                <addOrRemoveProductFromCategory [addProductView]='false' [removeProductView]='true' [categoryModel]='categoryModel' (removeProductCategory)='removeProductFromCategory($event)'></addOrRemoveProductFromCategory>
+            </div>
+        </div>
+    </div>
+</div>

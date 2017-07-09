@@ -1,0 +1,52 @@
+<div id="cart_items">
+    <div class="container">
+        <div *ngIf="isLoading">
+            <loading-view></loading-view>
+        </div>
+        <div *ngIf="!isLoading">
+            <div class="breadcrumbs">
+                <h4><a [routerLink]="['/home']">Home</a></h4>
+            </div>
+            <h2 class="title text-center">Listado de categor&iacute;as</h2>
+            <div class="esport-form">
+                <div class="table-responsive cart_info">
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr class="cart_menu">
+                                <td class="description">Id de categor&iacute;a</td>
+                                <td class="description">Descripci&oacute;n del categor&iacute;a</td>
+                                <td class="description">Agregar Producto</td>
+                                <td class="description">Quitar Producto</td>
+                                <td class="description">Editar</td>
+                                <td class="description">Eliminar/Restaurar</td>
+                            </tr>
+                        </thead>
+                        <tbody *ngFor='let category of categories'>
+                            <tr>
+                                <td class="tableItem_description">
+                                    <h4>{{category.CategoryId}}</h4>
+                                </td>
+                                <td class="tableItem_description">
+                                    <h4>{{category.Description}}</h4>
+                                </td>
+                                <td class="esport-table-action">
+                                    <a (click)="updateModel(category, '/addProductInCategory' )"><i class="fa fa-plus"></i></a>
+                                </td>
+                                <td class="esport-table-action">
+                                    <a (click)="updateModel(category,'/removeProductFromCategory')"><i class="fa fa-minus"></i></a>
+                                </td>
+                                <td class="esport-table-action">
+                                    <a (click)="updateModel(category,'/updateCategory')"><i class="fa fa-pencil-square-o"></i></a>
+                                </td>
+                                <td class="esport-table-action">
+                                    <a *ngIf="category.Eliminated" [routerLink]="['/mainPanel']" (click)="restoreCategory(category)"><i class="fa fa-refresh"></i></a>
+                                    <a *ngIf="!category.Eliminated" [routerLink]="['/mainPanel']" (click)="removeCategory(category)"><i class="fa fa-trash-o"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

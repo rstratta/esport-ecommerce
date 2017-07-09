@@ -1,0 +1,101 @@
+<header id="header">
+    <div class="header-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="logo pull-left">
+                        <a [routerLink]="['/home']"><img src="./images/logo.png" alt=""/></a>
+                    </div>
+                </div>
+                <div class="col-sm-8">
+                    <div class="mainmenu pull-right">
+                        <ul class="nav navbar-nav collapse navbar-collapse">
+                            <li><a *ngIf="userContext.userIsClient() && userContext.havePendingCart()" [routerLink]="['/cartView']"><i class="fa fa-shopping-cart"></i> </a></li>
+                            <li *ngIf="userContext.userIsLoged()" class="dropdown">
+                                <a>{{userContext.UserName}}  <span *ngIf="userContext.havePendingReview()" class="label label-danger">  {{userContext.pendingReviewQuantity}} !</span> <i class="fa fa-user"></i></a>
+                                <p *ngIf="userContext.userIsClient()"> Usted tiene:  {{userContext.Points}} puntos!</p>
+                                <ul role="menu" class="sub-menu">
+                                    <li><a [routerLink]="['/userAccountManager']">Perfil de usuario</a></li>
+                                    <li><a *ngIf="userContext.userIsClient()" [routerLink]="['/viewCartHistory']">Historial </a></li>
+                                    <li *ngIf="userContext.userIsClient() && userContext.havePendingReview()"><a [routerLink]="['/pendingReviewView']">Reviews Pendientes  </a><span class="label label-danger">  {{userContext.pendingReviewQuantity}} !</span></li>
+                                    <li><a (click)="logoutUser()" [routerLink]="['/mainPanel']">Logout</a></li>
+                                </ul>
+                            </li>
+                            <li><a *ngIf="!userContext.userIsLoged()" [routerLink]="['/login']"><i class="fa fa-lock"></i> Login</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="!responseModel.isSuccess && responseModel.showMessage" class="alert alert-danger alert-dismissable fade in">
+        <strong>{{responseModel.message}}!</strong>
+    </div>
+    <div *ngIf="responseModel.isSuccess && responseModel.showMessage" class="alert alert-success alert-dismissable fade in">
+        <strong>{{responseModel.message}}!</strong>
+    </div>
+    <div *ngIf="userContext.userIsAdmin()" class="header-bottom">
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-9">
+                        <div class="mainmenu pull-left">
+                            <ul class="nav navbar-nav collapse navbar-collapse">
+                                <li class="dropdown">
+                                    <a>Usuarios<i class="fa fa-angle-down"></i></a>
+                                    <ul role="menu" class="sub-menu">
+                                        <li><a [routerLink]="['/addUser']">Agregar Usuario</a></li>
+                                        <li><a [routerLink]="['/showUsers']">Listar usuarios</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a>Roles<i class="fa fa-angle-down"></i></a>
+                                    <ul role="menu" class="sub-menu">
+                                        <li><a [routerLink]="['/addRole']">Agregar Role</a></li>
+                                        <li><a [routerLink]="['/showRoles']">Listar roles</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a>Productos<i class="fa fa-angle-down"></i></a>
+                                    <ul role="menu" class="sub-menu">
+                                        <li><a [routerLink]="['/addProduct']">Agregar Producto</a></li>
+                                        <li><a [routerLink]="['/showProducts']">Listar Productos</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a>Categor&iacute;as<i class="fa fa-angle-down"></i></a>
+                                    <ul role="menu" class="sub-menu">
+                                        <li><a [routerLink]="['/addCategory']">Agregar Categor&iacute;a</a></li>
+                                        <li><a [routerLink]="['/showCategories']">Listar Categor&iacute;as</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a>Reportes<i class="fa fa-angle-down"></i></a>
+                                    <ul role="menu" class="sub-menu">
+                                        <li><a [routerLink]="['/productReport']">Productos m&aacute;s vendidos</a></li>
+                                        <li><a [routerLink]="['/categoryReport']">Reporte de categor&iacute;as</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</header>
+
+<router-outlet >
+    
+</router-outlet>
+
+
+<footer id="footer">
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <p class="pull-left">Copyright © 2017 ESPort. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </div>
+</footer>

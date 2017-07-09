@@ -1,0 +1,16 @@
+<section id="cart_items">
+		<div class="container">
+			<div class="breadcrumbs">
+				<h4><a [routerLink]="['/home']">Home</a></h4>
+			</div>
+            <h2 class="title text-center">Historial de compras</h2>
+			<div class="table-responsive cart_info">
+				<div *ngFor='let currentCart of cartHistoryModel.carts'>
+                    <h3><span class="fa fa-calendar"></span>  {{currentCart.Opendate}}  </h3>
+                    <cartItem-view [isACurrentCartView]='false' [cartItems]='currentCart.itemsDTO'></cartItem-view>
+                    <h3 class="text-right">Total $ {{currentCart.Total}}</h3>
+				</div>
+                <p><button  align="center" [routerLink]="['/home']" class="esport-button">Atras</button></p>
+			</div>
+		</div>
+	</section>

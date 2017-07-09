@@ -1,0 +1,24 @@
+<div>
+    <h2 class="title text-center">{{title}}</h2>
+    <div class="esport-form">
+        <form>
+            <input *ngIf="!updateAction" type="text" placeholder="Id de usuario" [(ngModel)]="userModel.UserId" name="UserId" required/>
+            <input *ngIf="updateAction" type="text" placeholder="Id de usuario" [(ngModel)]="userModel.UserId" name="UserId" disabled/>
+            <input *ngIf="!updateAction" type="password" placeholder="Password" [(ngModel)]="userModel.Password" name="Password" required/>
+            <input *ngIf="!updateAction" type="password" placeholder="Reingrese Password" [(ngModel)]="userModel.RepeatPassword" name="RepeatPassword"
+                required />
+            <span *ngIf="!updateAction && userModel.RepeatPassword && userModel.Password!=userModel.RepeatPassword" class="label label-danger">Las contraseñas deben coincidir</span>
+            <input type="text" placeholder="Nombre de usuario" [(ngModel)]="userModel.UserName" name="UserName" required/>
+            <input type="text" placeholder="Apellido de usuario" [(ngModel)]="userModel.UserLastName" name="UserLastName" required/>
+            <input type="text" placeholder="Tel&eacute;fono" [(ngModel)]="userModel.Phone" name="Phone" required />
+            <input type="text" placeholder="Direcci&oacute;n" [(ngModel)]="userModel.Address" name="Address" required />
+            <input type="email" placeholder="Email" [(ngModel)]="userModel.EMail" name="EMail" required/>
+            <select *ngIf="isAnAdminAction" id="roles" name="roles" placeholder="Rol" [(ngModel)]="userModel.RoleId" required>
+                    <option *ngFor="let role of roles" [value]="role.RoleId">{{role.Description}}</option>
+            </select>
+        </form>
+        <button *ngIf="!updateAction && !isAnAdminAction" (click)="onClickSignUp()" [routerLink]="['/home']" class="esport-button">Signup</button>
+        <button *ngIf="!updateAction && isAnAdminAction" (click)="onClickSignUp()" class="esport-button">Signup</button>
+        <button *ngIf="updateAction" (click)="onClickUpdateUser()" [routerLink]="['/home']" class="esport-button">Actualizar</button>
+    </div>
+</div>

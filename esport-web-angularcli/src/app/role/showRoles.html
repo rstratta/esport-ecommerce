@@ -1,0 +1,44 @@
+<div id="cart_items">
+    <div class="container">
+        <div class="breadcrumbs">
+            <h4><a [routerLink]="['/home']">Home</a></h4>
+        </div>
+        <div *ngIf="isLoading">
+            <loading-view></loading-view>
+        </div>
+        <div *ngIf="!isLoading">
+        <h2 class="title text-center">Listado de roles</h2>
+        <div class="esport-form">
+                <div class="table-responsive cart_info">
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr class="cart_menu">
+                                <td class="description">Id de Rol</td>
+                                <td class="description">Descripci&oacute;n del rol</td>
+                                <td class="description">Editar</td>
+                                <td class="description">Eliminar/Restaurar</td>
+                            </tr>
+                        </thead>
+                        <tbody *ngFor='let role of roles'>
+                            <tr>
+                                <td class="tableItem_description">
+                                    <h4>{{role.RoleId}}</h4>
+                                </td>
+                                <td class="tableItem_description">
+                                    <h4>{{role.Description}}</h4>
+                                </td>
+                            <td class="esport-table-action">
+                                    <a (click)="updateRoleModel(role)"><i class="fa fa-pencil-square-o"></i></a>
+                                </td>
+                            <td class="esport-table-action">
+                                    <a *ngIf="role.Eliminated" (click)="restoreRole(role)"><i class="fa fa-refresh"></i></a>
+                                    <a *ngIf="!role.Eliminated && role.RoleId!='client' && role.RoleId!='admin'" (click)="removeRole(role)"><i class="fa fa-trash-o"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

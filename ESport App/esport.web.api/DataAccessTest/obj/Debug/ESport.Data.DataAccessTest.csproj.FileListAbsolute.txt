@@ -1,0 +1,2 @@
+C:\Users\strat\Desktop\Rodrigo\Facultad\DiseñoAplicacionesII\SapelliStrattaGonzalez\ESport App\esport.web.api\DataAccessTest\obj\Debug\ESport.Data.DataAccessTest.csprojResolveAssemblyReference.cache
+C:\Users\Titi\Documents\GitHub\SapelliStrattaGonzalez\ESport App\esport.web.api\DataAccessTest\obj\Debug\ESport.Data.DataAccessTest.csprojResolveAssemblyReference.cache

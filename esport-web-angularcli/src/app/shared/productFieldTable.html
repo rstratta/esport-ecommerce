@@ -1,0 +1,39 @@
+<div id="cart_items col-sm-4">
+    <div class="container">
+      <div class="esport-form">
+            <div class="table-responsive cart_info">
+                <table class="table table-condensed" >
+                    <thead>
+                        <tr class="cart_menu">
+                            <td class="description">Nombre del campo</td>
+                            <td class="description">Valor</td>
+                            <td *ngIf="removeAction" class="description">Eliminar</td>
+                            <td *ngIf="!removeAction" class="description">Guardar</td>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor='let field of allFields'>
+                        <tr>
+                            <td class="tableItem_description">
+                                <h4>{{field.FieldName}}</h4>
+                            </td>
+                            <td>
+                                <input *ngIf="field.FieldType == 'text'" type="text" placeholder="Valor del campo" [(ngModel)]="field.FieldValue" name="FieldValue"/>
+                                <input *ngIf="field.FieldType == 'int'" type="number" placeholder="Valor del campo" [(ngModel)]="field.FieldValue" name="FieldValue"/>
+                                <input *ngIf="field.FieldType == 'date'" type="date" placeholder="Valor del campo" [(ngModel)]="field.FieldValue" name="FieldValue"/>
+                            </td>
+                            <td *ngIf="removeAction" class="tableItem_description" align="center">
+                                <a (click)="onClickRemoveProductField(field)"><i class="fa fa-trash-o"></i></a>
+                            </td>
+                            <td *ngIf="!removeAction && field.FieldValue" class="tableItem_description" align="center">
+                                <a (click)="onClickAddOrUpdateProductField(field)"><i class="fa fa-floppy-o"></i></a>
+                            </td>
+                            <td *ngIf="!removeAction && !field.FieldValue" class="tableItem_description" align="center">
+                                <a (click)="onClickAddOrUpdateProductField(field)"><i class="fa fa-floppy-o"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

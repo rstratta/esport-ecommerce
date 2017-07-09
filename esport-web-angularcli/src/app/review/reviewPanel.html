@@ -1,0 +1,34 @@
+<section>
+    <div class="container" id="reviews">
+        <div *ngIf="isLoading">
+            <loading-view></loading-view>
+        </div>
+        <div *ngIf="!isLoading">
+            <div class="breadcrumbs">
+                <h4><a [routerLink]="['/home']">Home</a></h4>
+            </div>
+            <div>
+                <h2 class="title text-center">Review de {{reviewModel.ItemDescription}}</h2>
+                <textarea type="text" placeholder="Descripci&oacute;n" [(ngModel)]="reviewModel.ReviewDescription" name="ReviewDescription"></textarea>
+                <fieldset class="rating">
+                    <input type="radio" id="star5" name="ReviewPoints" [(ngModel)]="reviewModel.ReviewPoints" value="5" />
+                    <label
+                        class="full" for="star5" title="Excelente"></label>
+                        <input type="radio" id="star4" name="ReviewPoints" [(ngModel)]="reviewModel.ReviewPoints" value="4" />
+                        <label
+                            class="full" for="star4" title="Muy bueno"></label>
+                            <input type="radio" id="star3" name="ReviewPoints" [(ngModel)]="reviewModel.ReviewPoints" value="3" />
+                            <label
+                                class="full" for="star3" title="Bueno"></label>
+                                <input type="radio" id="star2" name="ReviewPoints" [(ngModel)]="reviewModel.ReviewPoints" value="2" />
+                                <label
+                                    class="full" for="star2" title="Malo"></label>
+                                    <input type="radio" id="star1" name="ReviewPoints" [(ngModel)]="reviewModel.ReviewPoints" value="1" />
+                                    <label
+                                        class="full" for="star1" title="Muy malo"></label>
+                </fieldset>
+                <p><button (click)="addReview()" [routerLink]="['/home']" class="esport-button">Confirmar Review</button></p>
+            </div>
+        </div>
+    </div>
+</section>

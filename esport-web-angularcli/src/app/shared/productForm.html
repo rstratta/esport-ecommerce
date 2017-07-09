@@ -1,0 +1,30 @@
+<section>
+    <div class="container">
+        <div class="esport-form col-sm-6" >
+            <h2 class="title text-center">Im&aacute;genes</h2>
+            <input type="file" id="filePicker" (change)="addImage($event)" multiple>
+            <table>
+            <tbody  *ngFor='let image of imageLoaded'>
+                <tr>
+                 <td><img [src]="'data:image/jpg;base64,'+image.Content" height="80" width="80" /></td>
+                 
+                 <td><a (click)="removeImage(image)"><i class="fa fa-trash-o"></i></a></td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+        <div class="esport-form col-sm-6" >
+                <h2 class="title text-center">Producto</h2>
+                <form>
+                    <input *ngIf="!updateAction" type="text" placeholder="Id de producto" [(ngModel)]="productModel.ProductId" name="ProductId"/>
+                    <input *ngIf="updateAction" type="text" placeholder="Id de producto" [(ngModel)]="productModel.ProductId" name="ProductId" disabled/>
+                    <input type="text" placeholder="Descripci&oacute;n del producto" [(ngModel)]="productModel.Description" name="Description"/>
+                    <input type="text" placeholder="Nombre del product" [(ngModel)]="productModel.ProductName" name="ProductName"/>
+                    <input type="text" placeholder="Fabricante" [(ngModel)]="productModel.Factory" name="Factory"/>
+                    <input type="text" placeholder="Precio" [(ngModel)]="productModel.Price" name="Price"/>
+                </form>
+        </div>
+    </div>
+    <button *ngIf="!updateAction" (click)="onClickAddProduct()" [routerLink]="['/mainPanel']" class="esport-button">Agregar</button>
+        <button *ngIf="updateAction" (click)="onClickUpdateProduct()" [routerLink]="['/mainPanel']" class="esport-button">Actualizar</button>
+</section>
